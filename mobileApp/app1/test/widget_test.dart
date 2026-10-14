@@ -11,20 +11,23 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:app1/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
+  testWidgets('Displays the customized INFT 425 screen', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(const MyApp());
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    expect(find.text('INFT 425 - GitHub Copilot'), findsOneWidget);
+    expect(find.text('Hello World'), findsOneWidget);
+    expect(find.byIcon(Icons.code), findsOneWidget);
+    expect(
+      find.text('Department of Computing Sciences and Engineering'),
+      findsOneWidget,
+    );
+    expect(find.text('Learning Flutter, one widget at a time'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    final greeting = tester.widget<Text>(find.text('Hello World'));
+    expect(greeting.style?.fontSize, 42);
+    expect(greeting.style?.fontWeight, FontWeight.bold);
+    expect(greeting.style?.color, Colors.teal);
   });
 }
