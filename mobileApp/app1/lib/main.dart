@@ -32,7 +32,7 @@ class HelloWorldPage extends StatelessWidget {
       // Scaffold provides the standard page structure for the screen.
       appBar: AppBar(
         // AppBar shows the course and author at the top of the screen.
-        title: const Text('INFT 425 - Anim Enochg'),
+        title: const Text('INFT 425 - Anim Enoch'),
       ),
       // Center places the vertical content group in the available screen area.
       body: Center(
